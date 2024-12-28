@@ -15,7 +15,7 @@ source $HOME/.local/bin/env &&
 uv python install
 
 # --- docker ---
-sudo apt-get install docker.io
+sudo apt-get install docker.io docker-compose-v2
 
 # --- neovim ---
 # cd $HOME
