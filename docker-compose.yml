@@ -28,3 +28,4 @@ services:
       - "80:80"
     depends_on:
       - pihole
+    restart: unless-stopped
