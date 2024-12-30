@@ -6,7 +6,11 @@ readme = "README.md"
 requires-python = ">=3.12,<3.13"
 dependencies = [
     "bitwarden-sdk>=1.0.0",
+    "bw",
     "fastapi[standard]>=0.115.6",
     "psycopg[binary,pool]>=3.2.3",
     "python-dotenv>=1.0.1",
 ]
+
+[tool.uv.sources]
+bw = { path = "../bw", editable = true }
