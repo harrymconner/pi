@@ -5,5 +5,11 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "bw",
     "fastapi[standard]>=0.115.6",
+    "psycopg[binary,pool]>=3.2.3",
+    "python-dotenv>=1.0.1",
 ]
+
+[tool.uv.sources]
+bw = { path = "../bw", editable = true }
