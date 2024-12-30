@@ -3,14 +3,11 @@ name = "bw"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.12,<3.13"
 dependencies = [
     "bitwarden-sdk",
     "python-dotenv>=1.0.1",
 ]
-
-[tool.uv.sources]
-bitwarden-sdk = { path = "bitwarden_sdk-1.0.0" }
 
 [build-system]
 requires = ["hatchling"]
