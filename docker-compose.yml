@@ -26,6 +26,7 @@ services:
   web-app:
     build:
       context: ./web-app
+    image: harrymconner/pi-web-app
     container_name: web-app
     ports:
       - "3000:3000"
@@ -52,6 +53,7 @@ services:
   nginx:
     build:
       context: ./nginx
+    image: harrymconner/pi-nginx
     container_name: nginx
     ports:
       - "80:80"
