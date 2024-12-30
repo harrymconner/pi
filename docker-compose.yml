@@ -8,7 +8,7 @@ services:
       - "5432:5432"
     restart: unless-stopped
     env_file:
-      - ./web-app/.env
+      - ./postgres/.env
 
   pgadmin:
     image: dpage/pgadmin4:latest
@@ -21,7 +21,7 @@ services:
       - postgres
     restart: unless-stopped
     env_file:
-      - ./web-app/.env
+      - ./pgadmin/.env
 
   web-app:
     build:
@@ -30,6 +30,8 @@ services:
     ports:
       - "3000:3000"
     restart: unless-stopped
+    env_file:
+      - ./web-app/.env
 
   pihole:
     container_name: pihole

@@ -1,6 +1,5 @@
 import os
 
-import bw
 import dotenv
 import fastapi
 import psycopg
@@ -12,8 +11,8 @@ app = fastapi.FastAPI()
 
 @app.get("/")
 async def root() -> tuple[str] | None:
-    user = bw.get_secret(os.environ["POSTGRES_USER"])
-    password = bw.get_secret(os.environ["POSTGRES_PASSWORD"])
+    user = os.environ["POSTGRES_USER"]
+    password = os.environ["POSTGRES_PASSWORD"]
     connection_string = f"host=postgres user={user} password={password}"
 
     with psycopg.connect(connection_string) as conn:
