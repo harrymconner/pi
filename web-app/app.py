@@ -13,7 +13,10 @@ app = fastapi.FastAPI()
 async def root() -> list[tuple[int, float]]:
     user = os.environ["POSTGRES_USER"]
     password = os.environ["POSTGRES_PASSWORD"]
-    connection_string = f"postgresql://{user}:{password}@postgres:5432/dwh"
+    host = os.environ["POSTGRES_HOST"]
+    port = os.environ["POSTGRES_PORT"]
+    database = os.environ["POSTGRES_DATABASE"]
+    connection_string = f"postgresql://{user}:{password}@{host}:{port}/{database}"
 
     with psycopg.connect(connection_string) as conn:
         cur = conn.cursor()
