@@ -43,13 +43,11 @@ services:
       - "3001:80/tcp"
     environment:
       TZ: 'America/New_York'
+      PIHOLE_DNS_: 1.1.1.1;1.0.0.1
     volumes:
       - './etc-pihole:/etc/pihole'
       - './etc-dnsmasq.d:/etc/dnsmasq.d'
     restart: unless-stopped
-    dns:
-      - 127.0.0.1
-      - 1.1.1.1
 
   nginx:
     build:
