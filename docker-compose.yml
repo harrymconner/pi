@@ -45,8 +45,8 @@ services:
       TZ: 'America/New_York'
       PIHOLE_DNS_: 1.1.1.1;1.0.0.1
     volumes:
-      - './etc-pihole:/etc/pihole'
-      - './etc-dnsmasq.d:/etc/dnsmasq.d'
+      - '~/pi/pihole/etc-pihole:/etc/pihole'
+      - '~/pi/pihole/etc-dnsmasq.d:/etc/dnsmasq.d'
     restart: unless-stopped
 
   nginx:
