@@ -2,17 +2,20 @@ services:
   postgres:
     image: postgres:bookworm
     container_name: postgres
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     restart: unless-stopped
-    env_file:
-      - ./postgres/.env
 
   pgadmin:
     image: dpage/pgadmin4:latest
     container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
     volumes:
       - pgadmin_data:/var/lib/pgadmin
     ports:
@@ -20,19 +23,17 @@ services:
     depends_on:
       - postgres
     restart: unless-stopped
-    env_file:
-      - ./pgadmin/.env
 
   web-app:
     build:
       context: ./web-app
     image: harrymconner/pi-web-app
     container_name: web-app
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - "3000:3000"
     restart: unless-stopped
-    env_file:
-      - ./web-app/.env
 
   pihole:
     container_name: pihole
